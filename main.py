@@ -1,7 +1,12 @@
-from fastapi import FastAPI
+from flask import Flask, render_template
 
-app = FastAPI()
+app = Flask(__name__)
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+@app.route('/')
+def hello_world():
+    return render_template('home.html')
+
+app.run(host='0.0.0.0', port=5000)
+
+
+   
